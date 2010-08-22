@@ -1,3 +1,121 @@
 app1-seungjin-net.appspot.com
 
 google appengine - jruby powered
+
+http://code.google.com/p/appengine-jruby/wiki/Introduction
+http://code.google.com/p/appengine-jruby/wiki/InstallEverything
+
+Introduction¶
+
+Welcome to the coolest App Engine language: JRuby!
+
+By the way, Do Not use JRuby with this project.
+
+This project uses its own customised version of jruby that is packaged ('frozen' in ruby speak) with the other gems. You will run everything with two very powerful scripts, appcfg.rb and dev_appserver.rb, which run in plain old ruby - please don't try to run them in jruby. The customised jruby is called by these scripts when needed.
+
+If you are regularly using ruby you can probably skip to installing appengine-jruby gems.
+
+If you are a ruby newbie then you are still only 3 easy steps away from getting going.
+Get a recent version of Ruby¶
+
+On your command line type "ruby -v" to find your ruby version. This will generally be shown as:
+
+$ ruby -v
+
+If you do not have ruby or the version was older than 1.8, then get it from
+
+http://www.ruby-lang.org/en/downloads/
+Get a recent version of RubyGems¶
+
+$ gem -v
+
+shows you your version of RubyGems?.
+
+If it's older than 1.2 then here are instructions on how to upgrade
+
+http://rubygems.org/read/chapter/3
+Install the appengine-jruby gems¶
+
+Now to install the gem that will actually get things working. Remember to install it in normal ruby; do not attempt use jruby (or python or java ...).
+
+$ gem install google-appengine
+
+If you are on Linux or Mac OSX you may need may need to prefix your gem commands with sudo like
+
+$ sudo gem install google-appengine
+
+This is going to take a loooooong time (depending on your internet speed) so don't panic. Did I mention that a customised version of jruby is included ... just make your self a cup of coffee, or if you are on dial-up go out for 30MB of lunch.
+
+Create a new project¶
+
+Use appcfg.rb to make an application skeleton. This is where your configuration files will be. When you run appcfg.rb or dev_appserver.rb, always make sure that you are in this directory.
+
+$ appcfg.rb generate_app hello
+
+$ cd hello
+
+And you have finished ... yep that's all you need for now.
+Run your app¶
+
+To run your program, make sure you are still in the "hello" directory and type
+
+hello $ dev_appserver.rb .
+
+Watch as all of the extra files that you need are automatically copied into the right places.
+
+Now have a look at
+
+http://localhost:8080/
+
+CONGRATULATIONS!!
+
+Your script has been used it two ways.
+
+First, dev_appserver looked for any configuration information that you put into config.ru and generated all the xml configuration files. As you didn't put in any configuration information, it just used the defaults.
+
+Second your script is called when a request is sent to your web application. It takes in an argument env, and returns the result 'Hello', tells your browser that it is text/html and that everything worked fine (code 200). Don't worry about the text/html and 200 stuff, the smart Ruby guys have made it even easier (next section).
+
+Have a quick look at what is now in the hello directory to see all the work dev_appserver did for you.
+
+Create a Google App Engine account¶
+
+If you want Google to serve your app, Google needs to know who you are. To start, you need a Google account (not necessarily a gmail account) and a mobile phone. You will log in, Google will ask you for your mobile number, and you will very soon get a verification code to turn your Google account into an App Engine account. Note that you can only create one App Engine account per mobile number.
+
+If you manage a domain through Google, you will need to read this sometime, http://code.google.com/appengine/articles/auth.html , but in the mean time, to simply make an account go here:
+
+https://appengine.google.com/a/<YOURDOMAIN.COM>/
+
+The rest of you go here:
+
+http://appengine.google.com/
+Get an application ID¶
+
+Be careful to only create one application to play with initially. You can only ever have 10 applications linked to your account. Once you have created 10 application IDs, if you want something different, you need to get a new mobile phone to authenticate a new account (or borrow your girlfriend's/boyfriend's).
+
+Click on the "Create an Application" button. When you have reserved an application ID, continue to the next section.
+Configure your app¶
+
+You need to add some configuration so that Google will serve your cool new app at your new application ID. Edit the 'application' proprty inapp.yaml to match the application name that you have just registered with Google. The first line should now be:
+
+    application => "your-app-id",           
+
+The version can also contain letters, digits, and hyphens, but no decimals, so no '1.1', but '1-1' is fine.
+
+If you try this out with dev_appserver.rb . you will see that this works identically to the first application; the configure_app is just an application ID and version for Google.
+Upload your app¶
+
+Next the application needs to be reconfigured, the files need to be packaged up, and then all uploaded to Google App Engine so it can work at last. Yes, you guessed it, one line.
+
+hello $ appcfg.rb update .
+
+Your files will be processed automatically. Then you will be asked for your Google App Engine account (your full email address) and password, so that it can upload your app.
+
+When it has finished, have a look at your app at http://hello-world.appspot.com
+
+... that's not yours by the way, substitute in your application ID
+
+http://your-app-id.appspot.com
+
+The first time it runs, and if it is not used for a while, it will take about 20 seconds to start up, so don't panic if your loading indicator sits there for a while.
+
+You really have finished - your first Ruby on Java on App Engine web app. Your application is running on the cloud, capable of serving 5 million 'Hello World!'s a day. The world is a happier place :-)
