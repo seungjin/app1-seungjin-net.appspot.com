@@ -28,7 +28,7 @@ end
 
 get '/shoutout!' do
   # Just list all the shouts
-  @shouts = Shout.all
+  @shouts = Shout.all.reverse
   erb :index
 end
 
@@ -62,10 +62,11 @@ __END__
     </form>
 
     <% @shouts.each do |shout| %>
-    <p>+<q><%=h shout.message %></q></p>
+    <p>+<pre><%=h shout.message %></pre></p>
     <% end %>
 
-    <div style="position: absolute; bottom: 20px; right: 20px;">
+    <div style="position: fixed; bottom: 2px; right: 20px;">
     <img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" />
+    </div>
   </body>
 </html>
