@@ -17,11 +17,18 @@ module Bundler
   ENV["PATH"]     = "#{dir}/../../../../bin:#{ENV["PATH"]}"
   ENV["RUBYOPT"]  = "-r#{file} #{ENV["RUBYOPT"]}"
 
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/jruby-jars-1.5.2/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/extlib-0.9.15/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/lexidecimal-0.0.1/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/rack-1.2.1/bin")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/rack-1.2.1/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/sinatra-1.0/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/jruby-jars-1.5.2/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/addressable-2.2.0/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/dm-core-1.0.0/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/jruby-rack-1.0.3/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/appengine-rack-0.0.11.pre/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/appengine-rack-0.0.11/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/appengine-apis-0.0.18/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/dm-appengine-0.1.0/lib")
 
   @gemfile = "#{dir}/../../../../Gemfile"
 
@@ -92,7 +99,7 @@ end
 
 # Define all the Gem errors for gems that reference them.
 module Gem
-  def self.ruby ; "/opt/local/bin/ruby" ; end
+  def self.ruby ; "/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby" ; end
   def self.dir ; @dir ||= File.dirname(File.expand_path(__FILE__)) ; end
   class << self ; alias default_dir dir; alias path dir ; end
   class LoadError < ::LoadError; end
