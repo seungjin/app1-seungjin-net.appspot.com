@@ -2,5 +2,5 @@ require 'sinatra'
 require 'dm-core'
 
 get '/' do
-  "Hello World!"
+  "appengine, jruby, sinatra work"
 end
