@@ -50,6 +50,6 @@ __END__
     <% end %>
 
     <div style="position: absolute; bottom: 20px; right: 20px;">
-    <img src="/images/appengine.gif"></div>
+    <img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" />
   </body>
 </html>
