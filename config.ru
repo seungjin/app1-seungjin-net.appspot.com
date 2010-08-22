@@ -2,10 +2,10 @@
 
 require 'appengine-rack'
 
+require 'guestbook/guestbook.rb'
+
 #AppEngine::Rack.configure_app(
 #  :application => 'app1-seungjin-net',  
 #  :version => 1)
-
-require 'guestbook/guestbook.rb'
 
 run Sinatra::Application
