@@ -2,7 +2,7 @@
 
 require 'appengine-rack'
 
-require 'guestbook/guestbook.rb'
+require 'module/shout.rb'
 
 #AppEngine::Rack.configure_app(
 #  :application => 'app1-seungjin-net',  
