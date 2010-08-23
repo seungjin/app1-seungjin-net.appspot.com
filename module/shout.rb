@@ -10,6 +10,7 @@ class Shout
   
   property :id, Serial
   property :message, Text
+  property :created_at, DateTime, :default => Time.now
   property :updated_at, DateTime, :default => Time.now
 end
 
@@ -29,8 +30,8 @@ end
 
 get '/shout!' do
   # Just list all the shouts
-  #@shouts = Shout.all(:order => [:id.desc])
-  @shouts = Shout.all
+  @shouts = Shout.all(:order => [:created_at.desc])
+  #@shouts = Shout.all
   erb :index
 end
 
@@ -65,7 +66,7 @@ __END__
     </form>
 
     <% @shouts.each do |shout| %>
-    <pre><%=h shout.created_at.strftime("%Y-%m-%d %H:%M:%S UTF") %><br/><%=h shout.message %></pre>
+    <pre><%=h shout.created_at.strftime("%Y-%m-%d %H:%M:%S UTC") %><br/><%=h shout.message %></pre>
     <% end %>
 
     <!--div style="position: fixed; bottom: 2px; right: 20px;"-->

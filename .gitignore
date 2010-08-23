@@ -5,3 +5,4 @@
 **.kpf
 *.kpf
 MyProject.kpf
+WEB-INF/appengine-generated/**
