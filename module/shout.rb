@@ -10,7 +10,8 @@ class Shout
   
   property :id, Serial
   property :message, Text
-  property :updated_at, DateTime, :default => Time.now
+  property :created_at, DateTime, :default => Time.now
+  property :last_modified_at, DateTime, :default => Time.now
 end
 
 # Make sure our template can use <%=h
@@ -29,7 +30,7 @@ end
 
 get '/shout!' do
   # Just list all the shouts
-  @shouts = Shout.all(:order => [:id.desc])
+  @shouts = Shout.all(:order => [:created_at.desc])
   #@shouts = Shout.all
   erb :index
 end
