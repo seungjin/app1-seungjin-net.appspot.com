@@ -66,7 +66,7 @@ __END__
     </form>
 
     <% @shouts.each do |shout| %>
-    <pre><%=h shout.updated_at.strftime("%Y-%m-%d %H:%M:%S UTF") %><br/><%=h shout.message %></pre>
+    <pre><%=h shout.created_at.strftime("%Y-%m-%d %H:%M:%S UTF") %><br/><%=h shout.message %></pre>
     <% end %>
 
     <div style="position: fixed; bottom: 2px; right: 20px;">
