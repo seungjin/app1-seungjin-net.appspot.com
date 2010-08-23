@@ -28,7 +28,7 @@ end
 
 get '/shoutout!' do
   # Just list all the shouts
-  @shouts = Shout.all.reverse
+  @shouts = Shout.all
   erb :index
 end
 
