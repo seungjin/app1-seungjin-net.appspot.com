@@ -53,6 +53,7 @@ __END__
     <!--link rel="alternate" type="application/rss+xml" href="/Journals/form=feed&amp;size=40" title="RSS Feed, seungjin.net" /-->
     <meta name="date" content="<%=h Time.now.strftime("%Y-%m-%d %H:%M:%S %Z") %>">
     <meta name="author" content="Kim, Seung-jin">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" />
     <link href="/styles/update.css" rel="stylesheet" type="text/css">
   </head>
   <body style="font-family: sans-serif;">
@@ -64,11 +65,11 @@ __END__
     </form>
 
     <% @shouts.each do |shout| %>
-    <pre><%=h shout.message %> [<%=h shout.updated_at.strftime("%Y-%m-%d %H:%M:%S UTF") %>]</pre>
+    <pre><%=h shout.updated_at.strftime("%Y-%m-%d %H:%M:%S UTC") %><br/><%=h shout.message %></pre>
     <% end %>
 
-    <div style="position: fixed; bottom: 2px; right: 20px;">
+    <!--div style="position: fixed; bottom: 2px; right: 20px;"-->
     <img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" />
-    </div>
+    <!--/div-->
   </body>
 </html>

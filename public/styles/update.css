@@ -9,11 +9,13 @@ body
 	margin-left:3%;
 	margin-right:3%; 
 																		
-	
 	a:link    { color: #666666; text-decoration:none }						
 	a:active  { color: #666666; text-decoration:none }						
 	a:visited { color: #666666; text-decoration:none }						
 	a:hover   { color: #CCCCCC; text-decoration:none }					
+
+  word-wrap: break-word;
+
 }				
 
 #header
@@ -117,16 +119,8 @@ pre {
 	border:1px dashed #CCC;
 	padding:8px 8px 8px 8px;
 	margin:5px 0;
-        line-height:120%;
-        font-size: 100%;
+  line-height:120%;
+  font-size: 100%;
 	white-space: pre;
-	/* begin css 3 or browser specific rules - do not remove!
-	see: http://forums.techguy.org/archive/index.php/t-249849.html */
-/*
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;*/
-    /* end css 3 or browser specific rules */
+	word-wrap: break-word;
 }
