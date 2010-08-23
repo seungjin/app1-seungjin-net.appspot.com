@@ -38,7 +38,7 @@ end
 post '/shout!' do
   # Create a new shout and redirect back to the list.
   if params[:message].strip != "" then
-    shout = Shout.create(:message => params[:message])
+    shout = Shout.create(:message => params[:message].strip)
   end
   redirect '/shout!'
 end
@@ -63,8 +63,8 @@ __END__
     <h1>Shout!</h1>
     <hr/>
     <form method=post style="padding-bottom:5px;">
-      <textarea name="message" rows="3rm" style="width:80%; float:left; margin: 5px;" ></textarea>
-      <input type=submit value="Shout!" class="submit" style="float:noe; margin: 5px;" />
+      <textarea name="message" rows="3rm" style="width:80%; float:left; margin-left: 0px; margin-right: 5px;" ></textarea>
+      <input type=submit value="Shout!" class="submit" style="float:none; margin-left: 5px;" />
     </form>
     <div id="shouts">
       <% @shouts.each do |shout| %>
