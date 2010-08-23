@@ -111,3 +111,22 @@ body
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
+
+pre {
+	background:#F4F5F7 3px 3px no-repeat;
+	border:1px dashed #CCC;
+	padding:8px 8px 8px 8px;
+	margin:5px 0;
+        line-height:120%;
+        font-size: 100%;
+	white-space: pre;
+	/* begin css 3 or browser specific rules - do not remove!
+	see: http://forums.techguy.org/archive/index.php/t-249849.html */
+/*
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;*/
+    /* end css 3 or browser specific rules */
+}

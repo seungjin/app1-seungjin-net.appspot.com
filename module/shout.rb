@@ -10,6 +10,7 @@ class Shout
   
   property :id, Serial
   property :message, Text
+  property :updated_at, DateTime, :default => Time.now
 end
 
 # Make sure our template can use <%=h
@@ -26,16 +27,17 @@ post '/' do
   'appengine, jruby, sinatra work'
 end
 
-get '/shoutout!' do
+get '/shout!' do
   # Just list all the shouts
-  @shouts = Shout.all
+  @shouts = Shout.all(:order => [:id.desc])
+  #@shouts = Shout.all
   erb :index
 end
 
-post '/shoutout!' do
+post '/shout!' do
   # Create a new shout and redirect back to the list.
   shout = Shout.create(:message => params[:message])
-  redirect '/shoutout!'
+  redirect '/shout!'
 end
 
 __END__
@@ -43,18 +45,19 @@ __END__
 @@ index
 <html>
   <head>
-    <title>Shoutout!</title>
+    <title>Shout</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <!-- Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010 seungjin.net -->
     <!--link rel="alternate" type="application/rss+xml" href="/Journals/form=feed&amp;size=40" title="RSS Feed, seungjin.net" /-->
-    <meta name="date" content=" ">
+    <meta name="date" content="<%=h Time.now.strftime("%Y-%m-%d %H:%M:%S %Z") %>">
     <meta name="author" content="Kim, Seung-jin">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" />
     <link href="/styles/update.css" rel="stylesheet" type="text/css">
   </head>
   <body style="font-family: sans-serif;">
-    <h1>Shoutout!</h1>
+    <h2>Shout!</h2>
     <hr/>
     <form method=post>
       <textarea name="message" rows="3" style="width:80%"></textarea>
@@ -62,7 +65,7 @@ __END__
     </form>
 
     <% @shouts.each do |shout| %>
-    <p>+<pre><%=h shout.message %></pre></p>
+    <pre><%=h shout.updated_at.strftime("%Y-%m-%d %H:%M:%S UTF") %><br/><%=h shout.message %></pre>
     <% end %>
 
     <div style="position: fixed; bottom: 2px; right: 20px;">
