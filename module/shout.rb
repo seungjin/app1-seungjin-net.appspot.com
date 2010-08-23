@@ -10,8 +10,7 @@ class Shout
   
   property :id, Serial
   property :message, Text
-  property :created_at, DateTime, :default => Time.now
-  property :last_modified_at, DateTime, :default => Time.now
+  property :updated_at, DateTime, :default => Time.now
 end
 
 # Make sure our template can use <%=h
@@ -30,8 +29,8 @@ end
 
 get '/shout!' do
   # Just list all the shouts
-  @shouts = Shout.all(:order => [:created_at.desc])
-  #@shouts = Shout.all
+  #@shouts = Shout.all(:order => [:id.desc])
+  @shouts = Shout.all
   erb :index
 end
 
@@ -69,8 +68,8 @@ __END__
     <pre><%=h shout.created_at.strftime("%Y-%m-%d %H:%M:%S UTF") %><br/><%=h shout.message %></pre>
     <% end %>
 
-    <div style="position: fixed; bottom: 2px; right: 20px;">
+    <!--div style="position: fixed; bottom: 2px; right: 20px;"-->
     <img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" />
-    </div>
+    <!--/div-->
   </body>
 </html>
