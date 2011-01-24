@@ -35,6 +35,16 @@ post '/shout!' do
   redirect '/shout!'
 end
 
+
+
+get '/q' do
+    "now is #{Time.now}"
+end
+
+
+
+
+
 __END__
 
 @@ index
