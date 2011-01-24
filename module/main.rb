@@ -1,18 +1,10 @@
 require 'sinatra'
 require 'dm-core'
 
+require 'module/model_classes.rb'
+
 # Configure DataMapper to use the App Engine datastore 
 DataMapper.setup(:default, "appengine://auto")
-
-# Create your model class
-class Shout
-  include DataMapper::Resource
-  
-  property :id, Serial
-  property :message, Text
-  property :created_at, DateTime, :default => Time.now
-  property :updated_at, DateTime, :default => Time.now
-end
 
 # Make sure our template can use <%=h
 helpers do
@@ -21,7 +13,7 @@ helpers do
 end
 
 get '/' do
-  'appengine, jruby, sinatra work'
+  'appengine, jruby, sinatra work....'
 end
 
 post '/' do
