@@ -36,9 +36,14 @@ post '/shout!' do
 end
 
 
+def hi()
+    return "hihi"
+end 
 
 get '/q' do
     "now is #{Time.now}"
+    "asd"
+    "adsf #{hi()}"
 end
 
 
