@@ -7,3 +7,5 @@
 MyProject.kpf
 WEB-INF/appengine-generated/**
 WEB-INF/appengine-generated
+.*
+.**

@@ -17,18 +17,20 @@ module Bundler
   ENV["PATH"]     = "#{dir}/../../../../bin:#{ENV["PATH"]}"
   ENV["RUBYOPT"]  = "-r#{file} #{ENV["RUBYOPT"]}"
 
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/tilt-1.2.2/bin")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/tilt-1.2.2/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/extlib-0.9.15/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/lexidecimal-0.0.1/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/jruby-jars-1.5.6/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/rack-1.2.1/bin")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/rack-1.2.1/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/sinatra-1.0/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/jruby-jars-1.5.2/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/addressable-2.2.0/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/dm-core-1.0.0/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/jruby-rack-1.0.3/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/appengine-rack-0.0.11/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/appengine-apis-0.0.18/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/dm-appengine-0.1.0/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/sinatra-1.1.2/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/addressable-2.2.3/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/dm-core-1.0.2/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/jruby-rack-1.0.5/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/appengine-rack-0.0.12/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/appengine-apis-0.0.22/lib")
+  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/dm-appengine-0.1.3/lib")
 
   @gemfile = "#{dir}/../../../../Gemfile"
 
